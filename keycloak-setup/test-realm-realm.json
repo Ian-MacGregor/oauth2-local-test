@@ -1,0 +1,33 @@
+{
+  "realm": "test-realm",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "my-test-client",
+      "enabled": true,
+      "secret": "my-test-secret",
+      "clientAuthenticatorType": "client-secret",
+      "serviceAccountsEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": false,
+      "protocol": "openid-connect",
+      "defaultClientScopes": ["email", "profile", "roles"]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "user",
+        "description": "Regular user role"
+      }
+    ]
+  },
+  "users": [
+    {
+      "username": "service-account-my-test-client",
+      "enabled": true,
+      "serviceAccountClientId": "my-test-client",
+      "realmRoles": ["user"]
+    }
+  ]
+}
