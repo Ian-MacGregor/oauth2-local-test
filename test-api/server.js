@@ -8,7 +8,7 @@ const PORT = 3000;
 // ---------------------------------------------------------------------------
 // Configuration — points at the Keycloak realm running in Docker
 // ---------------------------------------------------------------------------
-const KEYCLOAK_URL = "http://localhost:8080";
+const KEYCLOAK_URL = process.env.KEYCLOAK_URL || "http://localhost:8080";
 const REALM = "test-realm";
 const ISSUER = `${KEYCLOAK_URL}/realms/${REALM}`;
 const JWKS_URI = `${ISSUER}/protocol/openid-connect/certs`;
