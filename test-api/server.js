@@ -3,12 +3,12 @@ const jwt = require("jsonwebtoken");
 const jwksClient = require("jwks-rsa");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // Use env var if available
 
 // ---------------------------------------------------------------------------
 // Configuration — points at the Keycloak realm running in Docker
 // ---------------------------------------------------------------------------
-const KEYCLOAK_URL = "http://localhost:8080";
+const KEYCLOAK_URL = process.env.KEYCLOAK_URL || "http://localhost:8080"; // Use env var if available
 const REALM = "test-realm";
 const ISSUER = `${KEYCLOAK_URL}/realms/${REALM}`;
 const JWKS_URI = `${ISSUER}/protocol/openid-connect/certs`;
