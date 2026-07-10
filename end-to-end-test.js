@@ -10,9 +10,15 @@
 // Usage:  node end-to-end-test.js
 // ==========================================================================
 
-const KEYCLOAK_TOKEN_URL =
-  "http://localhost:8080/realms/test-realm/protocol/openid-connect/token";
-const API_BASE = "http://localhost:3000";
+// Local dev defaults are preserved; override via env for the Railway deploy.
+//   KEYCLOAK_URL — same value as KC_HOSTNAME on Keycloak / KEYCLOAK_URL on the API
+//   API_URL      — the API service's public https URL
+const KEYCLOAK_URL = process.env.KEYCLOAK_URL || "http://localhost:8080";
+const REALM = process.env.REALM || "test-realm";
+const API_BASE = process.env.API_URL || "http://localhost:3000";
+
+const KEYCLOAK_TOKEN_URL = `${KEYCLOAK_URL}/realms/${REALM}/protocol/openid-connect/token`;
+
 const CLIENT_ID = process.env.CLIENT_ID || "my-test-client";
 const CLIENT_SECRET = process.env.CLIENT_SECRET || "my-test-secret";
 
