@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const jwksClient = require("jwks-rsa");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // ---------------------------------------------------------------------------
 // Configuration — points at the Keycloak realm running in Docker
