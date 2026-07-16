@@ -1,0 +1,903 @@
+{
+    "blockTrades": [
+        {
+            "trades": [
+                {
+                    "id": "",
+                    "portfolioReference": {
+                        "portfolioId": "5217",
+                        "portfolioTicker": "D_BL2GRJ2A"
+                    },
+                    "invnum": -107,
+                    "tradeNumber": 107,
+                    "quantity": 1,
+                    "tradeRelationships": [],
+                    "modifyTime": "2026-06-11T06:35:40Z",
+                    "interest": 0,
+                    "principal": -24.57,
+                    "orderId": "0",
+                    "strategyReference": {
+                        "strategyId": "0",
+                        "strategyName": "Unassigned"
+                    },
+                    "seriesNumber": 0,
+                    "commission": 0.02,
+                    "fee": 0.01,
+                    "settlementInstructionId1": "-1",
+                    "allocationAmount": 0,
+                    "exchangeRate": 1,
+                    "exchange": "",
+                    "rollFee": 0,
+                    "effectiveTermDate": null,
+                    "collaterals": [],
+                    "currentFactoredDownAmount": -1,
+                    "externalTradeReferences": [],
+                    "tradeCharges": [
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "AMFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "ASFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CCPF           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CHAR           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CLNT           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CLRF           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CNFC           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "COCA           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CONS           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "COUN           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CPFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CRCC           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "DCMF           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "DECO           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "DIPR           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "ECBE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "EXCO           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "EXEC           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "EXFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "FEXE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "FTRX           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "FUMF           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "FWTH           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "HAIR           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "INTT           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "ISDI           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "LEVY           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "LOCL           "
+                        },
+                        {
+                            "amount": 0.02,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "LOCO           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "MISC           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "ORF            "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "OTHR           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "PAYD           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "RECO           "
+                        },
+                        {
+                            "amount": 0.01,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "REGF           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "SIS1           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "SIS2           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "SLIP           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "STAM           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "STEX           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "SWAI           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "TIFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "TRAN           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "TRAX           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "UFFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "VATA           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "VATO           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "WITH           "
+                        }
+                    ],
+                    "tradeFlags": {
+                        "cashHaircut": false,
+                        "deliveryFreePayment": false,
+                        "electronicPoolNotificationEligible": false,
+                        "fullyAllocated": false,
+                        "netted": false,
+                        "allowDirtyPrice": false,
+                        "compliancePending": false,
+                        "beneficialOwnershipChange": true,
+                        "outsideCommitment": false,
+                        "suppressContract": false
+                    },
+                    "forwardExternalTradeReferences": [],
+                    "contracts": [],
+                    "fxLegs": null
+                }
+            ],
+            "dropRate": 0,
+            "executionTimeSource": "EXECUTION_TIME_SOURCE_AUTHORIZED_TIME",
+            "executionTime": "2026-06-10T23:38:29Z",
+            "settlementCurrency": "USD",
+            "coupon": 0,
+            "duration": 0,
+            "factor": 1,
+            "pricingIndex": "",
+            "pricingSpread": 0,
+            "tradeDate": "2026-06-10",
+            "factorDate": null,
+            "settlementDate": "2026-06-11",
+            "assetReference": {
+                "assetId": "47804J669"
+            },
+            "authorizedTime": "2026-06-10T23:38:29Z",
+            "brokerReference": {
+                "brokerId": "4069",
+                "brokerTicker": "VIRT",
+                "brokerShortname": "VIRT"
+            },
+            "brokerDeskId": "0",
+            "confirmedWith": "CONV",
+            "confirmedBy": "CONV",
+            "convexity": 0,
+            "enteredBy": "tsgops",
+            "entryTime": "2026-06-11T06:35:38Z",
+            "executingBrokerReference": {
+                "brokerId": "4069",
+                "brokerTicker": "VIRT",
+                "brokerShortname": "VIRT"
+            },
+            "executingBrokerDeskId": "0",
+            "multiFundId": 1620096,
+            "percentYield": 0,
+            "placementId": "0",
+            "price": 24.57,
+            "psa": 100,
+            "reviewTime": "2026-06-10T23:38:29Z",
+            "touchCount": 3,
+            "transactionType": "SELL",
+            "traderInitials": "CONV",
+            "version": 3,
+            "userDefinedFields": [],
+            "effectiveRate": 0,
+            "tradeYieldToCall": 0,
+            "transferPortfolioReference": null,
+            "priceType": "PRICE_TYPE_UNSPECIFIED",
+            "settlementFxRate": 1,
+            "tradeComments": [],
+            "tradeQuotes": [],
+            "daysToMaturity2a7": 0,
+            "forwardAssetReference": null,
+            "asset": null
+        },
+        {
+            "trades": [
+                {
+                    "id": "",
+                    "portfolioReference": {
+                        "portfolioId": "5363",
+                        "portfolioTicker": "D_USMCTCP"
+                    },
+                    "invnum": -5,
+                    "tradeNumber": 5,
+                    "quantity": 146.1619,
+                    "tradeRelationships": [],
+                    "modifyTime": "2026-06-11T14:54:10Z",
+                    "interest": 0,
+                    "principal": 2500.83,
+                    "orderId": "454403",
+                    "strategyReference": {
+                        "strategyId": "0",
+                        "strategyName": "Unassigned"
+                    },
+                    "seriesNumber": 0,
+                    "commission": 0,
+                    "fee": 0,
+                    "additionalTradeCharge": 0,
+                    "settlementInstructionId1": "8800",
+                    "allocationAmount": 0,
+                    "exchangeRate": 1,
+                    "exchange": "",
+                    "rollFee": 0,
+                    "effectiveTermDate": null,
+                    "collaterals": [],
+                    "currentFactoredDownAmount": 146.162,
+                    "externalTradeReferences": [],
+                    "tradeCharges": [],
+                    "tradeFlags": {
+                        "cashHaircut": false,
+                        "deliveryFreePayment": false,
+                        "electronicPoolNotificationEligible": false,
+                        "fullyAllocated": false,
+                        "netted": false,
+                        "allowDirtyPrice": false,
+                        "compliancePending": false,
+                        "beneficialOwnershipChange": true,
+                        "outsideCommitment": false,
+                        "suppressContract": false
+                    },
+                    "forwardExternalTradeReferences": [],
+                    "contracts": [],
+                    "fxLegs": null
+                }
+            ],
+            "dropRate": 0,
+            "executionTimeSource": "EXECUTION_TIME_SOURCE_VENUE",
+            "executionTime": "2026-06-11T14:50:39Z",
+            "settlementCurrency": "USD",
+            "coupon": 0,
+            "duration": 0,
+            "factor": 1,
+            "pricingIndex": "",
+            "pricingSpread": 0,
+            "tradeDate": "2026-06-10",
+            "factorDate": null,
+            "settlementDate": "2026-06-11",
+            "assetReference": {
+                "assetId": "BEE1WBQM6"
+            },
+            "authorizedTime": "2026-06-11T14:50:39Z",
+            "brokerReference": {
+                "brokerId": "1627",
+                "brokerTicker": "VPA_US",
+                "brokerShortname": "VPA_US"
+            },
+            "brokerDeskId": "2283",
+            "confirmedWith": "fundadpt",
+            "confirmedBy": "fundadpt",
+            "convexity": 0,
+            "enteredBy": "fundadpt",
+            "entryTime": "2026-06-11T14:54:09Z",
+            "executingBrokerReference": {
+                "brokerId": "1627",
+                "brokerTicker": "VPA_US",
+                "brokerShortname": "VPA_US"
+            },
+            "executingBrokerDeskId": "2283",
+            "multiFundId": 1624410,
+            "percentYield": 0,
+            "placementId": "601303",
+            "price": 17.11,
+            "psa": 100,
+            "purpose": "MAFID",
+            "reviewTime": "2026-06-11T14:54:10Z",
+            "touchCount": 2,
+            "transactionType": "BUY",
+            "traderInitials": "AUTOFA",
+            "version": 1,
+            "userDefinedFields": [],
+            "effectiveRate": 0,
+            "tradeYieldToCall": 0,
+            "transferPortfolioReference": null,
+            "priceType": "PRICE_TYPE_UNSPECIFIED",
+            "settlementFxRate": 1,
+            "tradeComments": [],
+            "tradeQuotes": [],
+            "daysToMaturity2a7": 0,
+            "forwardAssetReference": null,
+            "asset": null
+        },
+        {
+            "trades": [
+                {
+                    "id": "",
+                    "portfolioReference": {
+                        "portfolioId": "5217",
+                        "portfolioTicker": "D_BL2GRJ2A"
+                    },
+                    "invnum": -108,
+                    "tradeNumber": 108,
+                    "quantity": 4,
+                    "tradeRelationships": [],
+                    "modifyTime": "2026-06-11T06:35:40Z",
+                    "interest": 0,
+                    "principal": 291.72,
+                    "orderId": "0",
+                    "strategyReference": {
+                        "strategyId": "0",
+                        "strategyName": "Unassigned"
+                    },
+                    "seriesNumber": 0,
+                    "commission": 0.12,
+                    "settlementInstructionId1": "-1",
+                    "allocationAmount": 0,
+                    "exchangeRate": 1,
+                    "exchange": "",
+                    "rollFee": 0,
+                    "effectiveTermDate": null,
+                    "collaterals": [],
+                    "currentFactoredDownAmount": 4,
+                    "externalTradeReferences": [],
+                    "tradeCharges": [
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "AMFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "ASFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CCPF           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CHAR           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CLNT           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CLRF           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CNFC           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "COCA           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CONS           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "COUN           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CPFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "CRCC           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "DCMF           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "DECO           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "DIPR           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "ECBE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "EXCO           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "EXEC           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "EXFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "FEXE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "FTRX           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "FUMF           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "FWTH           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "HAIR           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "INTT           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "ISDI           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "LEVY           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "LOCL           "
+                        },
+                        {
+                            "amount": 0.12,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "LOCO           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "MISC           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "ORF            "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "OTHR           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "PAYD           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "RECO           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "REGF           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "SIS1           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "SIS2           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "SLIP           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "STAM           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "STEX           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "SWAI           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "TIFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "TRAN           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "TRAX           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "UFFE           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "VATA           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "VATO           "
+                        },
+                        {
+                            "amount": 0,
+                            "rate": 0,
+                            "rateType": "               ",
+                            "category": "WITH           "
+                        }
+                    ],
+                    "tradeFlags": {
+                        "cashHaircut": false,
+                        "deliveryFreePayment": false,
+                        "electronicPoolNotificationEligible": false,
+                        "fullyAllocated": false,
+                        "netted": false,
+                        "allowDirtyPrice": false,
+                        "compliancePending": false,
+                        "beneficialOwnershipChange": true,
+                        "outsideCommitment": false,
+                        "suppressContract": false
+                    },
+                    "forwardExternalTradeReferences": [],
+                    "contracts": [],
+                    "fxLegs": null
+                }
+            ],
+            "dropRate": 0,
+            "executionTimeSource": "EXECUTION_TIME_SOURCE_AUTHORIZED_TIME",
+            "executionTime": "2026-06-10T23:38:29Z",
+            "settlementCurrency": "USD",
+            "coupon": 0,
+            "duration": 0,
+            "factor": 1,
+            "pricingIndex": "",
+            "pricingSpread": 0,
+            "tradeDate": "2026-06-10",
+            "factorDate": null,
+            "settlementDate": "2026-06-11",
+            "assetReference": {
+                "assetId": "921937835"
+            },
+            "authorizedTime": "2026-06-10T23:38:29Z",
+            "brokerReference": {
+                "brokerId": "4606",
+                "brokerTicker": "PIPE",
+                "brokerShortname": "PIPE"
+            },
+            "brokerDeskId": "0",
+            "confirmedWith": "CONV",
+            "confirmedBy": "CONV",
+            "convexity": 0,
+            "enteredBy": "tsgops",
+            "entryTime": "2026-06-11T06:35:40Z",
+            "executingBrokerReference": {
+                "brokerId": "4606",
+                "brokerTicker": "PIPE",
+                "brokerShortname": "PIPE"
+            },
+            "executingBrokerDeskId": "0",
+            "multiFundId": 1620289,
+            "percentYield": 0,
+            "placementId": "0",
+            "price": 72.9311,
+            "psa": 100,
+            "reviewTime": "2026-06-10T23:38:29Z",
+            "touchCount": 3,
+            "transactionType": "BUY",
+            "traderInitials": "CONV",
+            "version": 3,
+            "userDefinedFields": [],
+            "effectiveRate": 0,
+            "tradeYieldToCall": 0,
+            "transferPortfolioReference": null,
+            "priceType": "PRICE_TYPE_UNSPECIFIED",
+            "settlementFxRate": 1,
+            "tradeComments": [],
+            "tradeQuotes": [],
+            "daysToMaturity2a7": 0,
+            "forwardAssetReference": null,
+            "asset": null
+        }
+    ],
+    "status": {
+        "code": 200,
+        "message": "Number of results processed successfully: 2/2",
+        "details": []
+    }
+}

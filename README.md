@@ -1,9 +1,9 @@
 # OAuth2 Test Environment
 
 A complete setup for testing the OAuth2 Client Credentials flow end-to-end
-using Keycloak (authorization server) and a Node.js API (protected resource).
-Supports both **local development** (Docker + localhost) and **remote hosting**
-(e.g., Railway), controlled by environment variables.
+using Keycloak (authorization server) and a suite of mock Node.js API servers
+(protected resources). Supports both **local development** (Docker + localhost)
+and **remote hosting** (e.g., Railway), controlled by environment variables.
 
 ## Prerequisites
 
@@ -27,7 +27,13 @@ oauth2-local-test/
 ├── .gitignore
 ├── keycloak-setup/
 │   └── test-realm-realm.json
-└── test-api/
+├── test-api/                 # General-purpose test API (ports 3000)
+│   ├── package.json
+│   └── server.js
+├── test-order-api/           # Mock Order API (port 3001)
+│   ├── package.json
+│   └── server.js
+└── test-trade-api/           # Mock Block Trade API (port 3002)
     ├── package.json
     └── server.js
 ```
@@ -39,34 +45,35 @@ oauth2-local-test/
 ## Architecture
 
 ```
-┌──────────────┐    1. POST /token     ┌──────────────────┐
-│              │ ───────────────────▶  │                  │
-│  Your Tool   │    (client creds)     │    Keycloak      │
-│  or Script   │ ◀───────────────────  │  (local or remote│
-│              │    2. access_token     │   via env var)   │
-│              │                       └──────────────────┘
-│              │    3. GET /api/data
-│              │    Authorization:      ┌──────────────────┐
-│              │      Bearer <token>    │                  │
-│              │ ───────────────────▶  │   Test API       │
-│              │                       │  (local or remote│
-│              │ ◀───────────────────  │   via env var)   │
-└──────────────┘    4. JSON response    └──────────────────┘
+                                        ┌──────────────────┐
+              1. POST /token            │                  │
+┌──────────┐ ────────────────────────▶ │    Keycloak      │
+│          │ ◀────────────────────────  │  (local or remote│
+│  Client  │   2. access_token          │   via env var)   │
+│          │                            └──────────────────┘
+│          │   3. POST /orders
+│          │   POST /blockTrades        ┌──────────────────┐
+│          │   Authorization:           │   Mock APIs      │
+│          │     Bearer <token>         │                  │
+│          │ ────────────────────────▶ │  Order API :3001 │
+│          │ ◀────────────────────────  │  Trade API :3002 │
+└──────────┘   4. JSON response         │  Test API  :3000 │
+                                        └──────────────────┘
 ```
 
 ## Environment Variables
 
-Both the API server and the end-to-end test script read configuration from
-environment variables, falling back to localhost defaults when not set.
+All servers and the test script read configuration from environment variables,
+falling back to localhost defaults when not set.
 
-| Variable       | Used by             | Default                    | Description                        |
-|----------------|---------------------|----------------------------|------------------------------------|
-| `KEYCLOAK_URL` | API server + test   | `http://localhost:8080`    | Base URL of the Keycloak instance  |
-| `PORT`         | API server          | `3000`                     | Port the API server listens on     |
-| `API_URL`      | Test script         | `http://localhost:3000`    | Base URL of the API service        |
-| `REALM`        | Test script         | `test-realm`               | Keycloak realm name                |
-| `CLIENT_ID`    | API server + test   | `my-test-client`           | OAuth2 client ID                   |
-| `CLIENT_SECRET`| API server + test   | `my-test-secret`           | OAuth2 client secret               |
+| Variable       | Used by                    | Default                 | Description                       |
+|----------------|----------------------------|-------------------------|-----------------------------------|
+| `KEYCLOAK_URL` | All API servers + test     | `http://localhost:8080` | Base URL of the Keycloak instance |
+| `PORT`         | All API servers            | `3000/3001/3002`        | Port each server listens on       |
+| `API_URL`      | Test script                | `http://localhost:3000` | Base URL of the general test API  |
+| `REALM`        | Test script                | `test-realm`            | Keycloak realm name               |
+| `CLIENT_ID`    | All API servers + test     | `my-test-client`        | OAuth2 client ID                  |
+| `CLIENT_SECRET`| All API servers + test     | `my-test-secret`        | OAuth2 client secret              |
 
 Set these in a `.env` file or your hosting platform's environment config.
 
@@ -99,16 +106,20 @@ docker volume prune -f
 docker compose up -d
 ```
 
-### 2. Install and start the test API
+### 2. Install and start the API servers
+
+Each server runs independently. Open a separate terminal for each one you need:
 
 ```bash
-cd test-api
-npm install
-npm start
-```
+# General test API — port 3000
+cd test-api && npm install && npm start
 
-You should see the server running on port 3000 with a list of available
-endpoints.
+# Mock Order API — port 3001
+cd test-order-api && npm install && npm start
+
+# Mock Block Trade API — port 3002
+cd test-trade-api && npm install && npm start
+```
 
 ### 3. Run the end-to-end test
 
@@ -141,16 +152,18 @@ realm is auto-imported on startup. On Railway (or similar):
    ```
 3. Note the public URL Railway assigns (e.g. `https://keycloak-abc.railway.app`).
 
-### Deploy the API
+### Deploy the API servers
 
-Point Railway at the `test-api/` directory and set:
+Each server is a separate Railway service. Point each at its respective
+subdirectory (`test-api/`, `test-order-api/`, `test-trade-api/`) and set:
 
 ```
 KEYCLOAK_URL=https://keycloak-abc.railway.app
-PORT=<Railway-assigned port, or leave unset to use 3000>
-CLIENT_ID=my-test-client
-CLIENT_SECRET=my-test-secret
 ```
+
+Leave `PORT` unset — Railway injects it automatically. `CLIENT_ID` and
+`CLIENT_SECRET` can be omitted; they only appear in startup log output and
+are not used for token validation.
 
 ### Run the end-to-end test against the remote services
 
@@ -162,13 +175,48 @@ node end-to-end-test.js
 
 ---
 
-## API Endpoints
+## Mock API Servers
 
-| Endpoint       | Auth Required | Description                          |
-|----------------|---------------|--------------------------------------|
-| GET /health    | No            | Health check                         |
-| GET /api/data  | Yes           | Returns token info and a message     |
-| GET /api/items | Yes           | Returns a list of mock items         |
+### General Test API (port 3000)
+
+A simple API used by the end-to-end test script to verify the OAuth2 flow.
+Returns token metadata and a mock item list.
+
+### Mock Order API (port 3001)
+
+Simulates an order management system API. Accepts a `POST /orders` request and
+returns a randomly generated list of orders, each with realistic field shapes
+(order IDs, portfolio references, asset identifiers, transaction types, statuses,
+timestamps, etc.). All date fields in the response always reflect today's date —
+the request payload is not used to filter by date.
+
+### Mock Block Trade API (port 3002)
+
+Simulates a block trade API. Accepts a `POST /blockTrades` request and returns a
+randomly generated list of block trades. The `tradeDate` provided in the request
+body is used to set all date fields in the response, with `settlementDate` set to
+the following calendar day. Each block trade includes portfolio and asset
+references, broker details, execution metadata, and a full set of trade charge
+categories matching the real API's fixed-width format.
+
+Both mock APIs:
+- Require a valid Bearer token issued by the Keycloak instance
+- Return a `GET /health` endpoint with no auth required
+- Generate fresh random data on every request (same structure, different values)
+
+---
+
+## Endpoints Summary
+
+| Server          | Endpoint            | Auth | Description                        |
+|-----------------|---------------------|------|------------------------------------|
+| General Test    | GET /health         | No   | Health check                       |
+| General Test    | GET /api/data       | Yes  | Returns token info and a message   |
+| General Test    | GET /api/items      | Yes  | Returns a list of mock items       |
+| Order API       | GET /health         | No   | Health check                       |
+| Order API       | POST /orders        | Yes  | Returns mock orders for today      |
+| Block Trade API | GET /health         | No   | Health check                       |
+| Block Trade API | POST /blockTrades   | Yes  | Returns mock trades for tradeDate  |
 
 ## Test Credentials (defaults)
 

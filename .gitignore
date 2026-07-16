@@ -1,2 +1,7 @@
 node_modules/
+test-trade-api\trade-api-input.txt
+test-trade-api\trade-api-output.txt
+test-order-api\order-api-input.txt
+test-order-api\order-api-output.txt
 .env
+.claude/

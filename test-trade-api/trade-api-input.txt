@@ -1,0 +1,19 @@
+HEADERS (4 items): 
+        'VND.com.blackrock.Origin-Timestamp' : <CURRENT TIME IN UTC TO THE SECOND>
+        'VND.com.blackrock.Request-ID'       : Unique ID {UUID(1) format}
+        'Authorization'                      : Bearer {access_token} 
+        'Content-Type'                       : 'application/json'
+
+PAYLOAD (json):
+        {
+           "query": {
+              "criteria": {
+                "dateTime": {
+                  "tradeDate": "2026-05-19"
+                },
+                "portfolio": {
+                  "portfolioGroupTicker": "A4_US"
+                }
+              }
+           }
+        }

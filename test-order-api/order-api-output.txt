@@ -1,0 +1,128 @@
+{
+    "orders": [
+        {
+            "id": "526860",
+            "orderStatus": "Authorized",
+            "orderDetails": [
+                {
+                    "orderDetailId": 526860,
+                    "version": 1,
+                    "portfolioReference": {
+                        "portfolioId": "5218",
+                        "portfolioTicker": "D_BL2BAJ2A"
+                    },
+                    "quantity": -8515,
+                    "strategyId": 0,
+                    "strategyName": "Unassigned",
+                    "quantityBooked": 0,
+                    "modifier": "ouncroni",
+                    "modifyTime": "2026-06-11T14:37:30.102Z",
+                    "requestStatus": "ASSIGNED_TO_STATUS_UNSPECIFIED",
+                    "reservations": []
+                }
+            ],
+            "assetId": "921937835",
+            "assetReference": {
+                "snpCusip": "921937835",
+                "isin": "US9219378356",
+                "sedol": "B1VZBS5",
+                "ric": "BND.OQ"
+            },
+            "transactionType": "SELL",
+            "settleDate": "2026-06-11",
+            "orderDate": "2026-06-11",
+            "basketId": "A4_REBALANCE_RUN_1638",
+            "marketPrice": 72.91,
+            "settleCurrencyCode": "USD",
+            "orderType": "Market on Close",
+            "expirationType": "Good Till Cancel",
+            "expirationDate": "2222-12-31",
+            "pmInitials": "TESTVLD2",
+            "tradePurpose": "MA - Flow Investment / Divestment",
+            "assignedToStatus": "ASSIGNED_TO_STATUS_UNSPECIFIED",
+            "tradingBenchmark": "Market on Close",
+            "tradingBenchmarkDate": "2026-06-11",
+            "authorizeTime": "2026-06-11T14:41:27.920Z",
+            "entryTime": "2026-06-11T14:37:30.105Z",
+            "factor": 1,
+            "interest": 0,
+            "modifier": "oukdarce",
+            "modifyTime": "2026-06-11T14:41:27.920Z",
+            "principal": -620828.65,
+            "version": 2,
+            "ownerType": "OWNER_TYPE_HYBRID",
+            "raiser": "TESTVLD2",
+            "touchCount": 3,
+            "orderComments": [],
+            "flags": [],
+            "financingType": "FINANCING_TYPE_UNSPECIFIED",
+            "face": -8515,
+            "relationships": [],
+            "fillAmount": 0,
+            "orderCustomFields": []
+        },
+        {
+            "id": "558861",
+            "orderStatus": "Active",
+            "orderDetails": [
+                {
+                    "orderDetailId": 558961,
+                    "version": 1,
+                    "portfolioReference": {
+                        "portfolioId": "5216",
+                        "portfolioTicker": "D_BL2AGJ2A"
+                    },
+                    "quantity": -127951.1,
+                    "strategyId": 0,
+                    "strategyName": "Unassigned",
+                    "quantityBooked": 0,
+                    "modifier": "ouncroni",
+                    "modifyTime": "2026-06-11T14:37:30.658Z",
+                    "requestStatus": "ASSIGNED_TO_STATUS_UNSPECIFIED",
+                    "reservations": []
+                }
+            ],
+            "assetId": "BEE0YXYD9",
+            "assetReference": {
+                "snpCusip": "BEE0YXYD9"
+            },
+            "transactionType": "SELL",
+            "settleDate": "2026-06-11",
+            "orderDate": "2026-06-10",
+            "tradeDate": "2026-06-10",
+            "basketId": "A4_REBALANCE_RUN_1638",
+            "marketPrice": 14.35,
+            "settleCurrencyCode": "USD",
+            "orderType": "Market on Close",
+            "expirationType": "Good Till Cancel",
+            "expirationDate": "2222-12-31",
+            "pmInitials": "TESTVLD2",
+            "traderInitials": "AUTOFA",
+            "tradePurpose": "MA - Flow Investment / Divestment",
+            "assignedToStatus": "ASSIGNED_TO_STATUS_UNSPECIFIED",
+            "unitType": "VALUE",
+            "tradingBenchmark": "Market on Close",
+            "tradingBenchmarkDate": "2026-06-10",
+            "activeTime": "2026-06-11T14:41:28.879Z",
+            "authorizeTime": "2026-06-11T14:41:27.932Z",
+            "entryTime": "2026-06-11T14:37:30.703Z",
+            "factor": 1,
+            "interest": 0,
+            "modifier": "fundadpt",
+            "modifyTime": "2026-06-11T14:41:28.879Z",
+            "principal": -127951.1,
+            "version": 3,
+            "ownerType": "OWNER_TYPE_PM",
+            "raiser": "TESTVLD2",
+            "touchCount": 4,
+            "orderComments": [],
+            "flags": [],
+            "financingType": "FINANCING_TYPE_UNSPECIFIED",
+            "face": -127951.1,
+            "relationships": [],
+            "fillAmount": 0,
+            "orderCustomFields": []
+        }
+    "nextPageToken": "",
+    "status": "2 result(s) processed, 0 result(s) not found, 0 result(s) hidden, 0 duplicate key(s) found in total"
+}

@@ -1,0 +1,16 @@
+HEADERS (4 items): 
+        'VND.com.blackrock.Origin-Timestamp' : <CURRENT TIME IN UTC TO THE SECOND>
+        'VND.com.blackrock.Request-ID'       : Unique ID {UUID(1) format}
+        'Authorization'                      : Bearer {access_token} 
+        'Content-Type'                       : 'application/json'
+
+PAYLOAD (json):
+        {
+           "pageSize": 0,
+           "pageToken": "string",                 <-- ONLY IF MORE THAN 4000 RESULTS
+           "query" : {
+              "portfolioGroupCriterion" : {
+                 "portfolioGroupTicker" : "A4_US"
+              }
+           }
+        }
