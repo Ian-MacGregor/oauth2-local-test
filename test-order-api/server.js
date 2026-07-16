@@ -10,6 +10,7 @@ const KEYCLOAK_URL = process.env.KEYCLOAK_URL || "http://localhost:8080";
 const REALM = "test-realm";
 const ISSUER = `${KEYCLOAK_URL}/realms/${REALM}`;
 const JWKS_URI = `${ISSUER}/protocol/openid-connect/certs`;
+const REQUIRED_SCOPE = "trading.order_management.order.v1.Order:read";
 
 // ---------------------------------------------------------------------------
 // Auth
@@ -36,6 +37,13 @@ function authenticate(req, res, next) {
     if (err) {
       console.error("Token verification failed:", err.message);
       return res.status(401).json({ error: "invalid_token", message: err.message });
+    }
+    const grantedScopes = (decoded.scope || "").split(" ");
+    if (!grantedScopes.includes(REQUIRED_SCOPE)) {
+      return res.status(403).json({
+        error: "insufficient_scope",
+        message: `Required scope '${REQUIRED_SCOPE}' was not granted`,
+      });
     }
     req.auth = decoded;
     next();

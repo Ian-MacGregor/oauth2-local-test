@@ -1,6 +1,15 @@
 {
   "realm": "test-realm",
   "enabled": true,
+  "clientScopes": [
+    {
+      "name": "trading.order_management.order.v1.Order:read",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.introspection": "true"
+      }
+    }
+  ],
   "clients": [
     {
       "clientId": "my-test-client",
@@ -11,7 +20,8 @@
       "directAccessGrantsEnabled": true,
       "standardFlowEnabled": false,
       "protocol": "openid-connect",
-      "defaultClientScopes": ["email", "profile", "roles"]
+      "defaultClientScopes": ["email", "profile", "roles"],
+      "optionalClientScopes": ["trading.order_management.order.v1.Order:read"]
     }
   ],
   "roles": {
