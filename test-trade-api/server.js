@@ -310,7 +310,7 @@ app.post("/blockTrades", authenticate, (req, res) => {
 // ---------------------------------------------------------------------------
 app.listen(PORT, () => {
   console.log(`\n=== Mock Block Trade API ===`);
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server listening on port ${PORT}`);
   console.log(`\nEndpoints:`);
   console.log(`  GET  /health      — no auth required`);
   console.log(`  POST /blockTrades — requires Bearer token; include tradeDate in request body`);

@@ -262,7 +262,7 @@ app.post("/orders", authenticate, (req, res) => {
 // ---------------------------------------------------------------------------
 app.listen(PORT, () => {
   console.log(`\n=== Mock Order API ===`);
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server listening on port ${PORT}`);
   console.log(`\nEndpoints:`);
   console.log(`  GET  /health  — no auth required`);
   console.log(`  POST /orders  — requires Bearer token`);
