@@ -4,8 +4,11 @@
   "clientScopes": [
     {
       "name": "trading.order_management.order.v1.Order:read",
+      "type": "optional",
       "protocol": "openid-connect",
       "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "false",
         "include.in.token.introspection": "true"
       }
     }
