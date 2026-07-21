@@ -265,6 +265,22 @@ app.post("/orders", authenticate, (req, res) => {
   });
 });
 
+// POST /orders/bulk — additional testing endpoint; same auth/shape as
+// /orders (per v1FilterOrdersResponse in the Order API OpenAPI spec), but
+// always returns a fixed 1211 randomized orders instead of a random 2-6.
+const BULK_ORDER_COUNT = 1211;
+
+app.post("/orders/bulk", authenticate, (req, res) => {
+  const date = todayStr();
+  const orders = Array.from({ length: BULK_ORDER_COUNT }, () => generateOrder(date));
+
+  res.json({
+    orders,
+    nextPageToken: "",
+    status: `${BULK_ORDER_COUNT} result(s) processed, 0 result(s) not found, 0 result(s) hidden, 0 duplicate key(s) found in total`,
+  });
+});
+
 // ---------------------------------------------------------------------------
 // Start
 // ---------------------------------------------------------------------------
@@ -272,7 +288,8 @@ app.listen(PORT, () => {
   console.log(`\n=== Mock Order API ===`);
   console.log(`Server listening on port ${PORT}`);
   console.log(`\nEndpoints:`);
-  console.log(`  GET  /health  — no auth required`);
-  console.log(`  POST /orders  — requires Bearer token`);
+  console.log(`  GET  /health      — no auth required`);
+  console.log(`  POST /orders      — requires Bearer token`);
+  console.log(`  POST /orders/bulk — requires Bearer token; always returns ${BULK_ORDER_COUNT} orders`);
   console.log(`\nKeycloak issuer: ${ISSUER}\n`);
 });

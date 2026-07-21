@@ -190,6 +190,10 @@ returns a randomly generated list of orders, each with realistic field shapes
 timestamps, etc.). All date fields in the response always reflect today's date —
 the request payload is not used to filter by date.
 
+`POST /orders/bulk` is an additional testing endpoint with the same response
+shape, but it always returns exactly 1211 randomized orders instead of a random
+2-6, for testing pagination/large-payload handling.
+
 ### Mock Block Trade API (port 3002)
 
 Simulates a block trade API. Accepts a `POST /blockTrades` request and returns a
@@ -198,6 +202,10 @@ body is used to set all date fields in the response, with `settlementDate` set t
 the following calendar day. Each block trade includes portfolio and asset
 references, broker details, execution metadata, and a full set of trade charge
 categories matching the real API's fixed-width format.
+
+`POST /trades/bulk` is an additional testing endpoint with the same response
+shape, but it always returns exactly 1211 randomized block trades (each wrapping
+one trade) instead of a random 2-5, for testing pagination/large-payload handling.
 
 Both mock APIs:
 - Require a valid Bearer token issued by the Keycloak instance
@@ -215,8 +223,10 @@ Both mock APIs:
 | General Test    | GET /api/items      | Yes  | Returns a list of mock items       |
 | Order API       | GET /health         | No   | Health check                       |
 | Order API       | POST /orders        | Yes  | Returns mock orders for today      |
+| Order API       | POST /orders/bulk   | Yes  | Returns 1211 mock orders for today |
 | Block Trade API | GET /health         | No   | Health check                       |
 | Block Trade API | POST /blockTrades   | Yes  | Returns mock trades for tradeDate  |
+| Block Trade API | POST /trades/bulk   | Yes  | Returns 1211 mock trades for tradeDate |
 
 ## Test Credentials (defaults)
 

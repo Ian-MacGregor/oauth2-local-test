@@ -313,6 +313,29 @@ app.post("/blockTrades", authenticate, (req, res) => {
   });
 });
 
+// POST /trades/bulk — additional testing endpoint; same auth/shape as
+// /blockTrades (per tradev2FilterTradesResponse in the Trade API OpenAPI
+// spec), but always returns a fixed 1211 randomized block trades (each
+// wrapping exactly one trade) instead of a random 2-5.
+const BULK_TRADE_COUNT = 1211;
+
+app.post("/trades/bulk", authenticate, (req, res) => {
+  const tradeDate =
+    req.body?.query?.criteria?.dateTime?.tradeDate ||
+    new Date().toISOString().split("T")[0];
+
+  const blockTrades = Array.from({ length: BULK_TRADE_COUNT }, () => generateBlockTrade(tradeDate));
+
+  res.json({
+    blockTrades,
+    status: {
+      code: 200,
+      message: `Number of results processed successfully: ${BULK_TRADE_COUNT}/${BULK_TRADE_COUNT}`,
+      details: [],
+    },
+  });
+});
+
 // ---------------------------------------------------------------------------
 // Start
 // ---------------------------------------------------------------------------
@@ -322,5 +345,6 @@ app.listen(PORT, () => {
   console.log(`\nEndpoints:`);
   console.log(`  GET  /health      — no auth required`);
   console.log(`  POST /blockTrades — requires Bearer token; include tradeDate in request body`);
+  console.log(`  POST /trades/bulk — requires Bearer token; always returns ${BULK_TRADE_COUNT} block trades; optional tradeDate in request body`);
   console.log(`\nKeycloak issuer: ${ISSUER}\n`);
 });
