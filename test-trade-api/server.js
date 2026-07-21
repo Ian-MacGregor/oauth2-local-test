@@ -316,14 +316,15 @@ app.post("/blockTrades", authenticate, (req, res) => {
 // POST /trades/bulk — additional testing endpoint; same auth/shape as
 // /blockTrades (per tradev2FilterTradesResponse in the Trade API OpenAPI
 // spec), backed by a fixed pool of 1211 randomized block trades (each
-// wrapping exactly one trade). Supports the spec's pageSize / pageToken
-// fields so a client can request smaller pages (e.g. pageSize: 50) instead
-// of generating and serializing all 1211 at once.
+// wrapping exactly one trade) generated once at startup so the same trades
+// come back on every call. Supports the spec's pageSize / pageToken fields
+// so a client can request smaller pages (e.g. pageSize: 50) instead of
+// serializing all 1211 at once.
 const BULK_TRADE_COUNT = 1211;
+const BULK_TRADE_DATE = new Date().toISOString().split("T")[0];
+const TRADE_POOL = Array.from({ length: BULK_TRADE_COUNT }, () => generateBlockTrade(BULK_TRADE_DATE));
 
-// pageToken here is just the offset into the fixed-size pool, encoded as a
-// string — sufficient for a mock server where each page's contents don't
-// need to stay stable across calls.
+// pageToken here is just the offset into TRADE_POOL, encoded as a string.
 function resolvePage(body, totalCount) {
   const pageSize = Math.min(
     Math.max(parseInt(body?.pageSize, 10) || totalCount, 1),
@@ -336,20 +337,15 @@ function resolvePage(body, totalCount) {
 }
 
 app.post("/trades/bulk", authenticate, (req, res) => {
-  const tradeDate =
-    req.body?.query?.criteria?.dateTime?.tradeDate ||
-    new Date().toISOString().split("T")[0];
-
   const { offset, end, nextPageToken } = resolvePage(req.body, BULK_TRADE_COUNT);
-  const pageCount = end - offset;
-  const blockTrades = Array.from({ length: pageCount }, () => generateBlockTrade(tradeDate));
+  const blockTrades = TRADE_POOL.slice(offset, end);
 
   res.json({
     blockTrades,
     nextPageToken,
     status: {
       code: 200,
-      message: `Number of results processed successfully: ${pageCount}/${pageCount}`,
+      message: `Number of results processed successfully: ${blockTrades.length}/${blockTrades.length}`,
       details: [],
     },
   });

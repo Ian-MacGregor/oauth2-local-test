@@ -267,14 +267,14 @@ app.post("/orders", authenticate, (req, res) => {
 
 // POST /orders/bulk — additional testing endpoint; same auth/shape as
 // /orders (per v1FilterOrdersResponse in the Order API OpenAPI spec), backed
-// by a fixed pool of 1211 randomized orders. Supports the spec's pageSize /
+// by a fixed pool of 1211 randomized orders generated once at startup so the
+// same orders come back on every call. Supports the spec's pageSize /
 // pageToken fields so a client can request smaller pages (e.g. pageSize: 50)
-// instead of generating and serializing all 1211 at once.
+// instead of serializing all 1211 at once.
 const BULK_ORDER_COUNT = 1211;
+const ORDER_POOL = Array.from({ length: BULK_ORDER_COUNT }, () => generateOrder(todayStr()));
 
-// pageToken here is just the offset into the fixed-size pool, encoded as a
-// string — sufficient for a mock server where each page's contents don't
-// need to stay stable across calls.
+// pageToken here is just the offset into ORDER_POOL, encoded as a string.
 function resolvePage(body, totalCount) {
   const pageSize = Math.min(
     Math.max(parseInt(body?.pageSize, 10) || totalCount, 1),
@@ -287,15 +287,13 @@ function resolvePage(body, totalCount) {
 }
 
 app.post("/orders/bulk", authenticate, (req, res) => {
-  const date = todayStr();
   const { offset, end, nextPageToken } = resolvePage(req.body, BULK_ORDER_COUNT);
-  const pageCount = end - offset;
-  const orders = Array.from({ length: pageCount }, () => generateOrder(date));
+  const orders = ORDER_POOL.slice(offset, end);
 
   res.json({
     orders,
     nextPageToken,
-    status: `${pageCount} result(s) processed, 0 result(s) not found, 0 result(s) hidden, 0 duplicate key(s) found in total`,
+    status: `${orders.length} result(s) processed, 0 result(s) not found, 0 result(s) hidden, 0 duplicate key(s) found in total`,
   });
 });
 

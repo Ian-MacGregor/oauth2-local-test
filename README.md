@@ -191,11 +191,14 @@ timestamps, etc.). All date fields in the response always reflect today's date �
 the request payload is not used to filter by date.
 
 `POST /orders/bulk` is an additional testing endpoint with the same response
-shape, backed by a fixed pool of 1211 randomized orders (instead of a random
-2-6). Pass `{ "pageSize": 50 }` in the request body to get a smaller page —
-much faster than requesting the full 1211 at once — and use the returned
-`nextPageToken` as `{ "pageToken": "<value>" }` on the next call to page
-through the rest. Omit `pageSize` to get all 1211 in one response.
+shape, backed by a fixed pool of 1211 randomized orders generated once when
+the server starts (instead of a random 2-6 regenerated every call) — so
+repeated calls return the same orders. Pass `{ "pageSize": 50 }` in the
+request body to get a smaller page — much faster than requesting the full
+1211 at once — and use the returned `nextPageToken` as
+`{ "pageToken": "<value>" }` on the next call to page through the rest. Omit
+`pageSize` to get all 1211 in one response. Restart the server to regenerate
+a fresh pool.
 
 ### Mock Block Trade API (port 3002)
 
@@ -208,10 +211,14 @@ categories matching the real API's fixed-width format.
 
 `POST /trades/bulk` is an additional testing endpoint with the same response
 shape, backed by a fixed pool of 1211 randomized block trades (each wrapping
-one trade, instead of a random 2-5). Pass `{ "pageSize": 50 }` in the request
-body to get a smaller page, and use the returned `nextPageToken` as
-`{ "pageToken": "<value>" }` on the next call to page through the rest. Omit
-`pageSize` to get all 1211 in one response.
+one trade) generated once when the server starts, using that day's date
+(instead of a random 2-5 regenerated every call using the request's
+`tradeDate`) — so repeated calls return the same trades, and the request
+body's `tradeDate` is ignored for this endpoint. Pass `{ "pageSize": 50 }` in
+the request body to get a smaller page, and use the returned `nextPageToken`
+as `{ "pageToken": "<value>" }` on the next call to page through the rest.
+Omit `pageSize` to get all 1211 in one response. Restart the server to
+regenerate a fresh pool.
 
 Both mock APIs:
 - Require a valid Bearer token issued by the Keycloak instance
