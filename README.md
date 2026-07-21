@@ -191,8 +191,11 @@ timestamps, etc.). All date fields in the response always reflect today's date �
 the request payload is not used to filter by date.
 
 `POST /orders/bulk` is an additional testing endpoint with the same response
-shape, but it always returns exactly 1211 randomized orders instead of a random
-2-6, for testing pagination/large-payload handling.
+shape, backed by a fixed pool of 1211 randomized orders (instead of a random
+2-6). Pass `{ "pageSize": 50 }` in the request body to get a smaller page —
+much faster than requesting the full 1211 at once — and use the returned
+`nextPageToken` as `{ "pageToken": "<value>" }` on the next call to page
+through the rest. Omit `pageSize` to get all 1211 in one response.
 
 ### Mock Block Trade API (port 3002)
 
@@ -204,8 +207,11 @@ references, broker details, execution metadata, and a full set of trade charge
 categories matching the real API's fixed-width format.
 
 `POST /trades/bulk` is an additional testing endpoint with the same response
-shape, but it always returns exactly 1211 randomized block trades (each wrapping
-one trade) instead of a random 2-5, for testing pagination/large-payload handling.
+shape, backed by a fixed pool of 1211 randomized block trades (each wrapping
+one trade, instead of a random 2-5). Pass `{ "pageSize": 50 }` in the request
+body to get a smaller page, and use the returned `nextPageToken` as
+`{ "pageToken": "<value>" }` on the next call to page through the rest. Omit
+`pageSize` to get all 1211 in one response.
 
 Both mock APIs:
 - Require a valid Bearer token issued by the Keycloak instance
